@@ -68,6 +68,15 @@ export function switchLocalePath(
 // TYPES
 // =============================================================================
 
+/**
+ * Alternate page for hreflang
+ * Only include alternates that actually exist (verified at SSR time)
+ */
+export interface PageAlternate {
+  locale: string
+  path: string
+}
+
 type PageSeoInput = {
   title: string
   description: string
@@ -77,6 +86,15 @@ type PageSeoInput = {
   jsonLd?: Record<string, unknown> | null
   publishedTime?: string
   modifiedTime?: string
+  /**
+   * Explicit alternates for hreflang
+   * If provided: only these alternates will be generated (verified to exist)
+   * If not provided: NO hreflang will be generated (safe default)
+   *
+   * This prevents generating hreflang for pages that don't exist.
+   * Call checkPageExists() to verify translations before setting alternates.
+   */
+  alternates?: PageAlternate[]
 }
 
 // =============================================================================
@@ -149,7 +167,8 @@ export function useSiteSeo() {
       noindex = false,
       jsonLd = null,
       publishedTime,
-      modifiedTime
+      modifiedTime,
+      alternates
     } = input
 
     const fullTitle = `${title} | ${siteConfig.name}`
@@ -163,37 +182,35 @@ export function useSiteSeo() {
     const shouldNoindex = noindex || !isProduction
     const robotsContent = shouldNoindex ? 'noindex, nofollow' : 'index, follow'
 
-    // Build hreflang alternates for all normalized locales
+    // -------------------------------------------------------------------------
+    // Build hreflang alternates
+    // -------------------------------------------------------------------------
+    // If `alternates` is provided: use only those (verified to exist)
+    // If not provided: NO hreflang (safe default, prevents broken links)
+    // -------------------------------------------------------------------------
     const alternateLinks: Array<{ rel: string; hreflang: string; href: string }> = []
 
-    for (const code of normalizedLocales) {
-      const alternatePath = switchLocalePath(
-        route.path,
-        locale.value,
-        code,
-        defaultLocale,
-        normalizedLocales
-      )
-      alternateLinks.push({
-        rel: 'alternate',
-        hreflang: localeMeta[code] || code,
-        href: toAbsoluteUrl(siteUrl, alternatePath)
-      })
-    }
+    if (alternates && alternates.length > 0) {
+      // Build alternates only for verified translations
+      for (const alt of alternates) {
+        alternateLinks.push({
+          rel: 'alternate',
+          hreflang: localeMeta[alt.locale] || alt.locale,
+          href: toAbsoluteUrl(siteUrl, alt.path)
+        })
+      }
 
-    // x-default points to default locale version
-    const defaultPath = switchLocalePath(
-      route.path,
-      locale.value,
-      defaultLocale,
-      defaultLocale,
-      normalizedLocales
-    )
-    alternateLinks.push({
-      rel: 'alternate',
-      hreflang: 'x-default',
-      href: toAbsoluteUrl(siteUrl, defaultPath)
-    })
+      // x-default: point to default locale if it's in the alternates
+      const defaultAlt = alternates.find((a) => a.locale === defaultLocale)
+      if (defaultAlt) {
+        alternateLinks.push({
+          rel: 'alternate',
+          hreflang: 'x-default',
+          href: toAbsoluteUrl(siteUrl, defaultAlt.path)
+        })
+      }
+    }
+    // If no alternates provided: skip hreflang entirely (safe default)
 
     // ogLocale from localeMeta (replace - with _)
     const currentLocaleMeta = localeMeta[locale.value] || locale.value

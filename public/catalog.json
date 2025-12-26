@@ -1,0 +1,337 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-12-26T16:30:24.629Z",
+  "packs": [
+    "interweb",
+    "pizza"
+  ],
+  "sections": [
+    {
+      "id": "faq.simple",
+      "propsShape": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "optional": true
+          },
+          "items": {
+            "type": "array",
+            "optional": false,
+            "items": {
+              "type": "object",
+              "optional": false,
+              "properties": {
+                "q": {
+                  "type": "string",
+                  "optional": false
+                },
+                "a": {
+                  "type": "string",
+                  "optional": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "fixtures": [
+        {
+          "title": "Frequently Asked Questions",
+          "items": [
+            {
+              "q": "What is this product?",
+              "a": "A powerful platform for building amazing experiences."
+            },
+            {
+              "q": "How do I get started?",
+              "a": "Sign up for a free account and follow our quick start guide."
+            },
+            {
+              "q": "Is there a free tier?",
+              "a": "Yes, we offer a generous free tier for personal projects."
+            }
+          ]
+        },
+        {
+          "items": [
+            {
+              "q": "Simple question?",
+              "a": "Simple answer without a title."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hero.split",
+      "propsShape": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "optional": false
+          },
+          "subtitle": {
+            "type": "string",
+            "optional": true
+          },
+          "ctaLabel": {
+            "type": "string",
+            "optional": true
+          },
+          "ctaHref": {
+            "type": "string",
+            "optional": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "optional": true
+          }
+        }
+      },
+      "fixtures": [
+        {
+          "title": "Welcome to Our Platform",
+          "subtitle": "Build amazing experiences with our powerful tools.",
+          "ctaLabel": "Get Started",
+          "ctaHref": "/signup",
+          "imageUrl": "https://picsum.photos/800/600"
+        },
+        {
+          "title": "Minimal Hero",
+          "subtitle": "Sometimes less is more."
+        }
+      ]
+    },
+    {
+      "id": "layout.split",
+      "propsShape": {
+        "type": "object",
+        "properties": {
+          "ratio": {
+            "type": "unknown",
+            "optional": true
+          },
+          "reverse": {
+            "type": "boolean",
+            "optional": true
+          },
+          "gap": {
+            "type": "number",
+            "optional": true
+          },
+          "align": {
+            "type": "unknown",
+            "optional": true
+          },
+          "paddingY": {
+            "type": "number",
+            "optional": true
+          },
+          "left": {
+            "type": "string",
+            "optional": true
+          },
+          "right": {
+            "type": "string",
+            "optional": true
+          },
+          "leftImage": {
+            "type": "string",
+            "optional": true
+          },
+          "rightImage": {
+            "type": "string",
+            "optional": true
+          }
+        }
+      },
+      "fixtures": [
+        {
+          "ratio": "1:1",
+          "gap": 12,
+          "align": "center",
+          "paddingY": 16,
+          "left": "<h2>Left Column</h2><p>Content on the left side.</p>",
+          "right": "<h2>Right Column</h2><p>Content on the right side.</p>"
+        },
+        {
+          "ratio": "2:1",
+          "reverse": true,
+          "gap": 8,
+          "leftImage": "https://picsum.photos/600/400",
+          "right": "<h3>Image on left, text on right</h3><p>With reversed order and 2:1 ratio.</p>"
+        }
+      ]
+    },
+    {
+      "id": "layout.stack",
+      "propsShape": {
+        "type": "object",
+        "properties": {
+          "gap": {
+            "type": "number",
+            "optional": true
+          },
+          "align": {
+            "type": "unknown",
+            "optional": true
+          },
+          "maxWidth": {
+            "type": "string",
+            "optional": true
+          },
+          "paddingY": {
+            "type": "number",
+            "optional": true
+          },
+          "paddingX": {
+            "type": "number",
+            "optional": true
+          },
+          "content": {
+            "type": "string",
+            "optional": true
+          }
+        }
+      },
+      "fixtures": [
+        {
+          "gap": 8,
+          "align": "center",
+          "maxWidth": "3xl",
+          "paddingY": 16,
+          "content": "<h2>Centered Content</h2><p>This is a simple stack with centered alignment.</p>"
+        },
+        {
+          "gap": 4,
+          "align": "start",
+          "maxWidth": "2xl",
+          "paddingY": 8,
+          "paddingX": 6,
+          "content": "<p>Minimal stack with small gap.</p>"
+        }
+      ]
+    }
+  ],
+  "shells": [
+    {
+      "id": "footer.default",
+      "slot": "footer",
+      "propsShape": {
+        "type": "object",
+        "properties": {
+          "companyName": {
+            "type": "unknown",
+            "optional": false
+          },
+          "year": {
+            "type": "unknown",
+            "optional": false
+          },
+          "links": {
+            "type": "unknown",
+            "optional": false
+          }
+        }
+      },
+      "fixtures": [
+        {
+          "companyName": "Acme Corp",
+          "year": 2025,
+          "links": [
+            {
+              "label": "Privacy",
+              "href": "/privacy"
+            },
+            {
+              "label": "Terms",
+              "href": "/terms"
+            },
+            {
+              "label": "Contact",
+              "href": "/contact"
+            }
+          ]
+        },
+        {
+          "companyName": "Startup Inc",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "id": "header.default",
+      "slot": "header",
+      "propsShape": {
+        "type": "object",
+        "properties": {
+          "logoText": {
+            "type": "unknown",
+            "optional": false
+          },
+          "logoHref": {
+            "type": "unknown",
+            "optional": false
+          },
+          "navItems": {
+            "type": "unknown",
+            "optional": false
+          }
+        }
+      },
+      "fixtures": [
+        {
+          "logoText": "Acme Corp",
+          "logoHref": "/",
+          "navItems": [
+            {
+              "label": "Home",
+              "href": "/"
+            },
+            {
+              "label": "About",
+              "href": "/about"
+            },
+            {
+              "label": "Contact",
+              "href": "/contact"
+            }
+          ]
+        },
+        {
+          "logoText": "Minimal",
+          "logoHref": "/"
+        }
+      ]
+    },
+    {
+      "id": "header.minimal",
+      "slot": "header",
+      "propsShape": {
+        "type": "object",
+        "properties": {
+          "logoText": {
+            "type": "unknown",
+            "optional": false
+          },
+          "logoHref": {
+            "type": "unknown",
+            "optional": false
+          }
+        }
+      },
+      "fixtures": [
+        {
+          "logoText": "Simple",
+          "logoHref": "/"
+        },
+        {
+          "logoText": "🚀 Startup",
+          "logoHref": "/"
+        }
+      ]
+    }
+  ]
+}

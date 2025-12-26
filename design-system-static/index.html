@@ -1,0 +1,1678 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Design System Interweb - Un système de design minimaliste et premium inspiré par Apple"
+    />
+    <title>Interweb Design System</title>
+    <link rel="stylesheet" href="design-system.css" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◉</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       NAVIGATION
+       Premium glassmorphism, responsive
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <nav class="nav" id="nav">
+      <div class="nav__container">
+        <div class="nav__bar">
+          <!-- Logo -->
+          <a href="#" class="nav__logo">interweb</a>
+
+          <!-- Links (Desktop) - Centered -->
+          <div class="nav__links">
+            <a href="#features" class="nav__link"><span>Fonctionnalités</span></a>
+            <a href="#how" class="nav__link"><span>Comment ça marche</span></a>
+            <a href="#testimonials" class="nav__link"><span>Avis</span></a>
+            <a href="#pricing" class="nav__link"><span>Tarifs</span></a>
+          </div>
+
+          <!-- Actions -->
+          <div class="nav__actions">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Changer de thème">
+              <svg
+                class="sun-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                />
+              </svg>
+              <svg
+                class="moon-icon"
+                style="display: none"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+            </button>
+
+            <!-- CTA Button -->
+            <a href="#contact" class="btn btn--primary btn--sm">
+              <span>Commencer</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO SECTION
+       Main value proposition with CTA
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section section--hero">
+      <div class="container text-center">
+        <!-- Status Pill -->
+        <div class="pill mx-auto mb-6" style="display: inline-flex">
+          <span class="pulse"></span>
+          <span class="text-label">Disponible maintenant</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-display mx-auto mb-6" style="max-width: 900px">
+          Votre site professionnel,<br />
+          prêt en <span class="text-accent">24 heures.</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p
+          class="text-body text-body--large mx-auto mb-8 max-w-2xl"
+          style="color: var(--color-text-secondary)"
+        >
+          Un site internet clair, sérieux et moderne, conçu pour des professionnels comme vous.
+          <strong style="color: var(--color-text-primary)">Vous n'avez rien à faire</strong>, on
+          s'occupe de tout.
+        </p>
+
+        <!-- CTA Button -->
+        <div class="mb-10 flex justify-center">
+          <button class="btn btn--primary btn--lg">
+            <span>Obtenir mon site gratuitement</span>
+            <span class="btn__icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="flex flex-col items-center gap-4">
+          <p class="text-caption">
+            <strong style="color: var(--color-text-primary)">+ de 150 professionnels</strong> nous
+            font confiance
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-6">
+            <div class="flex items-center gap-2">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-success)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                style="opacity: 0.7"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span class="text-caption">Sans engagement</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-success)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                style="opacity: 0.7"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span class="text-caption">Satisfait ou remboursé</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-success)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                style="opacity: 0.7"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span class="text-caption">Support inclus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       FEATURES SECTION - "Pour qui"
+       Feature cards with gradient accents
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section" id="features">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="mb-12 text-center">
+          <h2 class="text-headline mb-4">
+            Pour qui est fait <span class="text-accent">Interweb</span> ?
+          </h2>
+          <p class="text-body mx-auto max-w-xl">
+            Pour les professionnels qui veulent un site internet efficace, sans prise de tête.
+          </p>
+        </div>
+
+        <!-- Feature Cards Grid -->
+        <div class="grid--4 grid">
+          <!-- Card 1: Artisans -->
+          <div class="card">
+            <div class="card__gradient" style="background: var(--gradient-blue)"></div>
+            <div class="card__content">
+              <div class="icon-box mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-title mb-2">Artisans</h3>
+              <p class="text-caption">Plombiers, électriciens, menuisiers, peintres...</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Indépendants -->
+          <div class="card">
+            <div class="card__gradient" style="background: var(--gradient-orange)"></div>
+            <div class="card__content">
+              <div class="icon-box mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <h3 class="text-title mb-2">Indépendants</h3>
+              <p class="text-caption">Consultants, coachs, formateurs, freelances...</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Professions libérales -->
+          <div class="card">
+            <div class="card__gradient" style="background: var(--gradient-purple)"></div>
+            <div class="card__content">
+              <div class="icon-box mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                </svg>
+              </div>
+              <h3 class="text-title mb-2">Professions libérales</h3>
+              <p class="text-caption">Avocats, médecins, architectes, comptables...</p>
+            </div>
+          </div>
+
+          <!-- Card 4: TPE/PME -->
+          <div class="card">
+            <div class="card__gradient" style="background: var(--gradient-green)"></div>
+            <div class="card__content">
+              <div class="icon-box mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                  <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+                  <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+                  <path d="M10 6h4M10 10h4M10 14h4M10 18h4" />
+                </svg>
+              </div>
+              <h3 class="text-title mb-2">TPE / PME</h3>
+              <p class="text-caption">Commerces, restaurants, agences, startups...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       BENTO GRID SECTION - "Pourquoi choisir"
+       Asymmetric grid with rich visualizations
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section" id="how">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="mb-10 flex flex-col gap-4" style="max-width: 600px">
+          <h2 class="text-headline">
+            Pourquoi choisir <span class="text-accent">Interweb</span> ?
+          </h2>
+          <p class="text-body">Ce qui nous distingue des autres solutions.</p>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="bento bento--2x2">
+          <!-- Card 1: Une vraie équipe -->
+          <div class="bento-card">
+            <div class="bento-card__gradient" style="background: var(--gradient-blue)"></div>
+            <div class="bento-card__content">
+              <div class="icon-box mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <h3 class="text-title mb-3">Une vraie équipe, pas un outil</h3>
+              <p class="text-body">
+                Pas de logiciel à apprendre. Pas de template à configurer. Des humains créent votre
+                site pour vous.
+              </p>
+            </div>
+
+            <!-- Visual: Team Avatars -->
+            <div class="bento-card__visual hide-mobile">
+              <div class="avatar-group mb-4">
+                <div
+                  class="avatar-group__item avatar-placeholder"
+                  style="background: linear-gradient(135deg, #0071e3, #5856d6)"
+                ></div>
+                <div
+                  class="avatar-group__item avatar-placeholder"
+                  style="background: linear-gradient(135deg, #30d158, #00c7be)"
+                ></div>
+                <div
+                  class="avatar-group__item avatar-placeholder"
+                  style="background: linear-gradient(135deg, #ff9f0a, #ff3b30)"
+                ></div>
+              </div>
+              <span class="badge badge--primary">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                  />
+                </svg>
+                Fait main
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 2: Zéro engagement -->
+          <div class="bento-card">
+            <div class="bento-card__gradient" style="background: var(--gradient-green)"></div>
+            <div class="bento-card__content">
+              <div class="icon-box mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <h3 class="text-title mb-3">Zéro engagement</h3>
+              <p class="text-body">
+                La première version est gratuite. Si ça ne vous plaît pas, on arrête là. 30 jours
+                satisfait ou remboursé.
+              </p>
+            </div>
+
+            <!-- Visual: Guarantee Badge -->
+            <div class="bento-card__visual hide-mobile">
+              <span class="badge badge--success" style="padding: var(--space-3) var(--space-4)">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <path d="m9 11 3 3L22 4" />
+                </svg>
+                30 jours satisfait ou remboursé
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 3: Simple et transparent -->
+          <div class="bento-card">
+            <div class="bento-card__gradient" style="background: var(--gradient-orange)"></div>
+            <div class="bento-card__content">
+              <div class="icon-box mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </div>
+              <h3 class="text-title mb-3">Simple et transparent</h3>
+              <p class="text-body">
+                Pas de jargon technique, pas de frais cachés. Un tarif clair, et c'est tout.
+              </p>
+            </div>
+
+            <!-- Visual: Pricing Mini Card -->
+            <div class="bento-card__visual hide-mobile">
+              <div class="mini-card" style="width: 200px">
+                <div class="mini-card__header">
+                  <span
+                    class="text-caption"
+                    style="font-weight: 600; color: var(--color-text-primary)"
+                    >Tarif V1</span
+                  >
+                </div>
+                <div class="mini-card__body text-center">
+                  <div class="mb-1 flex items-center justify-center gap-2">
+                    <span class="text-caption" style="text-decoration: line-through; opacity: 0.5"
+                      >1500€</span
+                    >
+                    <span class="text-caption">→</span>
+                    <span style="font-size: 2rem; font-weight: 800; color: var(--color-success)"
+                      >0€</span
+                    >
+                  </div>
+                  <span class="text-caption">pour votre première version</span>
+                </div>
+                <div class="mini-card__footer justify-center">
+                  <span class="text-label text-success">Sans engagement ✓</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Rapide -->
+          <div class="bento-card">
+            <div class="bento-card__gradient" style="background: var(--gradient-teal)"></div>
+            <div class="bento-card__content">
+              <div class="icon-box mb-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              </div>
+              <h3 class="text-title mb-3">Rapide</h3>
+              <p class="text-body">
+                Un vrai site en 24 heures. Pas une maquette, un site que vous pouvez montrer à vos
+                clients.
+              </p>
+            </div>
+
+            <!-- Visual: Calendar -->
+            <div class="bento-card__visual hide-mobile">
+              <div class="mini-card" style="width: 220px">
+                <div class="mini-card__header">
+                  <span
+                    class="text-caption"
+                    style="font-weight: 600; color: var(--color-text-primary)"
+                    >Décembre 2025</span
+                  >
+                </div>
+                <div class="mini-card__body">
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: repeat(7, 1fr);
+                      gap: 4px;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <span class="text-label text-center" style="font-size: 9px">L</span>
+                    <span class="text-label text-center" style="font-size: 9px">M</span>
+                    <span class="text-label text-center" style="font-size: 9px">M</span>
+                    <span class="text-label text-center" style="font-size: 9px">J</span>
+                    <span class="text-label text-center" style="font-size: 9px">V</span>
+                    <span class="text-label text-center" style="font-size: 9px">S</span>
+                    <span class="text-label text-center" style="font-size: 9px">D</span>
+                  </div>
+                  <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px">
+                    <span class="text-caption text-center" style="padding: 4px">22</span>
+                    <span class="text-caption text-center" style="padding: 4px">23</span>
+                    <span class="text-caption text-center" style="padding: 4px">24</span>
+                    <span
+                      class="text-center"
+                      style="
+                        padding: 4px;
+                        background: var(--color-primary);
+                        color: white;
+                        border-radius: 6px;
+                        font-size: 13px;
+                        font-weight: 500;
+                      "
+                      >25</span
+                    >
+                    <span
+                      class="text-center"
+                      style="
+                        padding: 4px;
+                        background: var(--color-success-alpha);
+                        color: var(--color-success);
+                        border-radius: 6px;
+                        font-size: 13px;
+                        font-weight: 500;
+                        position: relative;
+                      "
+                      >26</span
+                    >
+                    <span class="text-caption text-center" style="padding: 4px">27</span>
+                    <span class="text-caption text-center" style="padding: 4px">28</span>
+                  </div>
+                </div>
+                <div class="mini-card__footer">
+                  <div class="flex items-center gap-1">
+                    <span
+                      style="
+                        width: 8px;
+                        height: 8px;
+                        background: var(--color-primary);
+                        border-radius: 50%;
+                      "
+                    ></span>
+                    <span class="text-caption" style="font-size: 10px">Demande</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <span
+                      style="
+                        width: 8px;
+                        height: 8px;
+                        background: var(--color-success);
+                        border-radius: 50%;
+                      "
+                    ></span>
+                    <span class="text-label text-success" style="font-size: 10px">Site prêt</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       TESTIMONIALS SECTION
+       Social proof with customer quotes
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="mb-12 text-center">
+          <h2 class="text-headline mb-4">
+            Ils nous font <span class="text-accent">confiance</span>
+          </h2>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <div class="flex items-center gap-1">
+              <svg class="star star--lg" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg class="star star--lg" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg class="star star--lg" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg class="star star--lg" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg class="star star--lg" viewBox="0 0 24 24">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+            </div>
+            <span class="text-body" style="font-weight: 600; color: var(--color-text-primary)"
+              >5/5</span
+            >
+            <span class="text-caption">basé sur les retours clients</span>
+          </div>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class="grid--3 grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial">
+            <div class="testimonial__quote">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"
+                />
+                <path
+                  d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
+                />
+              </svg>
+            </div>
+            <p class="testimonial__text">
+              "Je n'y connaissais rien en sites web. En 24h j'avais quelque chose de propre à
+              montrer. Exactement ce qu'il me fallait."
+            </p>
+            <div class="testimonial__footer">
+              <div class="testimonial__author">
+                <div
+                  class="testimonial__avatar avatar-placeholder rounded-full"
+                  style="background: linear-gradient(135deg, #60a5fa, #3b82f6)"
+                ></div>
+                <div>
+                  <div class="testimonial__name">Marc L.</div>
+                  <div class="testimonial__role">Électricien • Lyon</div>
+                </div>
+              </div>
+              <div class="testimonial__rating">
+                <svg class="star" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+                <span class="text-caption" style="font-weight: 600">5.0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial">
+            <div class="testimonial__quote">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"
+                />
+                <path
+                  d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
+                />
+              </svg>
+            </div>
+            <p class="testimonial__text">
+              "Enfin une solution simple. Pas besoin de comprendre le technique. Ils font, et c'est
+              bien fait."
+            </p>
+            <div class="testimonial__footer">
+              <div class="testimonial__author">
+                <div
+                  class="testimonial__avatar avatar-placeholder rounded-full"
+                  style="background: linear-gradient(135deg, #a78bfa, #8b5cf6)"
+                ></div>
+                <div>
+                  <div class="testimonial__name">Sophie D.</div>
+                  <div class="testimonial__role">Ostéopathe • Bordeaux</div>
+                </div>
+              </div>
+              <div class="testimonial__rating">
+                <svg class="star" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+                <span class="text-caption" style="font-weight: 600">5.0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial">
+            <div class="testimonial__quote">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"
+                />
+                <path
+                  d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
+                />
+              </svg>
+            </div>
+            <p class="testimonial__text">
+              "Le rapport qualité/prix est imbattable. J'ai eu des devis à 3000€ ailleurs. Très
+              satisfait."
+            </p>
+            <div class="testimonial__footer">
+              <div class="testimonial__author">
+                <div
+                  class="testimonial__avatar avatar-placeholder rounded-full"
+                  style="background: linear-gradient(135deg, #34d399, #10b981)"
+                ></div>
+                <div>
+                  <div class="testimonial__name">Thomas B.</div>
+                  <div class="testimonial__role">Gérant d'agence • Nantes</div>
+                </div>
+              </div>
+              <div class="testimonial__rating">
+                <svg class="star" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+                <span class="text-caption" style="font-weight: 600">5.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       KPI / RECAP SECTION
+       Key metrics with gradient cards
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section" id="recap">
+      <div class="container">
+        <!-- KPI Grid -->
+        <div class="grid--3 grid">
+          <!-- Card 1: 24h - Wide with blue gradient -->
+          <div class="kpi-card kpi-card--glass col-span-2">
+            <div class="gradient-layer gradient-layer--blue"></div>
+            <div class="glass-overlay"></div>
+            <div class="content-layer">
+              <div class="kpi-card__metric">
+                <span class="kpi-card__value">24h</span>
+                <span class="kpi-card__label">Délai de livraison</span>
+              </div>
+              <p class="kpi-card__description">
+                Votre première version de site est prête en moins de 24 heures après votre demande.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: 0€ - Inverted -->
+          <div class="kpi-card kpi-card--inverted">
+            <div class="content-layer">
+              <div class="kpi-card__metric">
+                <span class="kpi-card__value">0</span>
+                <span class="kpi-card__unit">€</span>
+              </div>
+              <p class="kpi-card__description">Pour votre première version. Sans engagement.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: 100% - Green gradient -->
+          <div class="kpi-card kpi-card--glass">
+            <div class="gradient-layer gradient-layer--green"></div>
+            <div class="glass-overlay"></div>
+            <div class="content-layer">
+              <div class="kpi-card__metric">
+                <span class="kpi-card__value">100</span>
+                <span class="kpi-card__unit">%</span>
+              </div>
+              <p class="kpi-card__description">Satisfaction ou remboursé sous 30 jours.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Support - Wide with orange gradient -->
+          <div class="kpi-card kpi-card--glass col-span-2">
+            <div class="gradient-layer gradient-layer--orange"></div>
+            <div class="glass-overlay"></div>
+            <div class="content-layer">
+              <div class="kpi-card__metric">
+                <span class="kpi-card__value">Support</span>
+                <span class="kpi-card__unit">Humain</span>
+              </div>
+              <p class="kpi-card__description">
+                Vous n'êtes jamais seul grâce à notre support. On s'occupe de tout, vous n'avez qu'à
+                demander.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       RESULTS / CASE STUDIES SECTION
+       Before/After transformations
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section" id="results" style="background: var(--color-bg-secondary)">
+      <div class="container">
+        <!-- Section Header (left-aligned) -->
+        <div class="mb-8" style="max-width: 40rem">
+          <h2 class="text-headline mb-2">
+            Des résultats
+            <span class="text-muted" style="font-style: italic; font-weight: 500">concrets</span>
+          </h2>
+          <p class="text-body">Quelques exemples de transformations réalisées.</p>
+        </div>
+
+        <!-- Cases Grid -->
+        <div class="grid--3 grid">
+          <!-- Case 1: Plombier -->
+          <article class="case-card">
+            <div class="card__gradient" style="background: var(--gradient-blue)"></div>
+            <div class="card__content">
+              <div class="case-card__header">
+                <span class="case-card__category">Artisan</span>
+                <h3 class="case-card__title">Plombier indépendant</h3>
+              </div>
+              <div class="case-card__body">
+                <p class="case-card__before">Aucune présence en ligne</p>
+                <p class="case-card__after">→ Site pro avec formulaire de contact</p>
+              </div>
+              <div class="case-card__footer">
+                <p class="case-card__result">+5 demandes / semaine</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case 2: Avocat -->
+          <article class="case-card">
+            <div class="card__gradient" style="background: var(--gradient-purple)"></div>
+            <div class="card__content">
+              <div class="case-card__header">
+                <span class="case-card__category">Profession libérale</span>
+                <h3 class="case-card__title">Cabinet d'avocat</h3>
+              </div>
+              <div class="case-card__body">
+                <p class="case-card__before">Site vieillissant, pas adapté mobile</p>
+                <p class="case-card__after">→ Site moderne et sobre</p>
+              </div>
+              <div class="case-card__footer">
+                <p class="case-card__result">Image professionnelle renforcée</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case 3: Consultant -->
+          <article class="case-card">
+            <div class="card__gradient" style="background: var(--gradient-orange)"></div>
+            <div class="card__content">
+              <div class="case-card__header">
+                <span class="case-card__category">Indépendant</span>
+                <h3 class="case-card__title">Consultant en management</h3>
+              </div>
+              <div class="case-card__body">
+                <p class="case-card__before">Uniquement présent sur LinkedIn</p>
+                <p class="case-card__after">→ Site vitrine complet</p>
+              </div>
+              <div class="case-card__footer">
+                <p class="case-card__result">Crédibilité accrue</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-10 flex flex-col items-center text-center">
+          <button class="btn btn--primary btn--lg">
+            <span>Obtenir mon site gratuitement</span>
+            <span class="btn__icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+          <p class="text-caption mt-3">C'est gratuit et sans engagement.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       CONTACT FORM SECTION
+       Contact form with highlights
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-section">
+          <div class="contact-section__gradient"></div>
+          <div class="contact-section__content">
+            <!-- Form Card -->
+            <div class="contact-form-card">
+              <div class="contact-form-card__header">
+                <div>
+                  <p class="contact-form-card__subtitle">Interweb Support</p>
+                  <h3 class="contact-form-card__title">Besoin d'aide ?</h3>
+                </div>
+                <div class="contact-form-card__icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <form action="#" method="POST" class="form">
+                <div class="form-group">
+                  <label for="ct-name" class="form-label">Votre nom <span>*</span></label>
+                  <input
+                    id="ct-name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Jean Dupont"
+                    class="form-input"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="ct-email" class="form-label">Email <span>*</span></label>
+                  <div class="form-input-wrapper">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                      <rect x="2" y="4" width="20" height="16" rx="2" />
+                    </svg>
+                    <input
+                      id="ct-email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="vous@exemple.com"
+                      class="form-input form-input--with-icon"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="ct-msg" class="form-label">Message</label>
+                  <textarea
+                    id="ct-msg"
+                    name="message"
+                    rows="4"
+                    placeholder="Décrivez votre projet ou posez vos questions..."
+                    class="form-textarea"
+                  ></textarea>
+                </div>
+                <button type="submit" class="form-submit">
+                  Envoyer le message
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </button>
+                <p class="form-disclaimer">
+                  En soumettant, vous acceptez nos Conditions et notre Politique de Confidentialité.
+                </p>
+              </form>
+            </div>
+
+            <!-- Info Side -->
+            <div class="contact-info">
+              <h2 class="contact-info__title">Parlons de votre projet.</h2>
+              <p class="contact-info__description">
+                Site vitrine, questions ou partenariats — dites-nous ce dont vous avez besoin. Nous
+                répondons sous 24h.
+              </p>
+
+              <div class="contact-highlights">
+                <div class="contact-highlight">
+                  <div class="contact-highlight__icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 6v6h4" />
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="contact-highlight__title">Réponse rapide</p>
+                    <p class="contact-highlight__text">
+                      La plupart des messages reçoivent une réponse en moins de 24h.
+                    </p>
+                  </div>
+                </div>
+                <div class="contact-highlight">
+                  <div class="contact-highlight__icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M16 10a4 4 0 0 1-8 0" />
+                      <path d="M3.103 6.034h17.794" />
+                      <path
+                        d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="contact-highlight__title">Étapes claires</p>
+                    <p class="contact-highlight__text">
+                      Nous vous envoyons un plan concis et un calendrier.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Direct Contact -->
+              <div class="contact-direct">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+                  alt="Responsable"
+                  class="contact-direct__avatar"
+                />
+                <div class="contact-direct__info">
+                  <p class="contact-direct__role">Responsable Projets</p>
+                  <p class="contact-direct__name">Thomas Martin</p>
+                </div>
+                <a href="mailto:contact@interweb.fr" class="contact-direct__link">
+                  Contacter directement
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       COMPONENTS SHOWCASE
+       All reusable components for reference
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section" id="components">
+      <div class="container">
+        <div class="mb-12 text-center">
+          <span class="badge mb-4">Référence</span>
+          <h2 class="text-headline mb-4">
+            Composants du <span class="text-accent">Design System</span>
+          </h2>
+          <p class="text-body mx-auto max-w-xl">
+            Tous les éléments réutilisables pour créer des interfaces cohérentes.
+          </p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mb-12">
+          <h3 class="text-label mb-4">Boutons</h3>
+          <div class="flex flex-wrap items-center gap-4">
+            <button class="btn btn--primary">
+              <span>Primaire</span>
+              <span class="btn__icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </span>
+            </button>
+            <button class="btn btn--secondary">Secondaire</button>
+            <button class="btn btn--ghost">Ghost</button>
+            <button class="btn btn--primary btn--sm">Small</button>
+            <button class="btn btn--primary btn--lg">Large</button>
+          </div>
+        </div>
+
+        <div class="divider mb-12"></div>
+
+        <!-- Pills & Badges -->
+        <div class="mb-12">
+          <h3 class="text-label mb-4">Pills & Badges</h3>
+          <div class="flex flex-wrap items-center gap-4">
+            <div class="pill">
+              <span class="pulse"></span>
+              <span class="text-label">En ligne</span>
+            </div>
+            <span class="badge">Badge</span>
+            <span class="badge badge--primary">Primary</span>
+            <span class="badge badge--success">Success</span>
+          </div>
+        </div>
+
+        <div class="divider mb-12"></div>
+
+        <!-- Icons -->
+        <div class="mb-12">
+          <h3 class="text-label mb-4">Conteneurs d'icônes</h3>
+          <div class="flex flex-wrap items-center gap-4">
+            <div class="icon-box">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                />
+              </svg>
+            </div>
+            <div class="icon-box">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div class="icon-box">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+            </div>
+            <div class="icon-box">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider mb-12"></div>
+
+        <!-- Tooltips -->
+        <div class="mb-12">
+          <h3 class="text-label mb-4">Tooltips</h3>
+          <div class="flex flex-wrap items-center gap-8">
+            <!-- Top (default) -->
+            <div class="tooltip">
+              <button class="btn btn--secondary">Top</button>
+              <div class="tooltip__content">Tooltip en haut</div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="tooltip tooltip--bottom">
+              <button class="btn btn--secondary">Bottom</button>
+              <div class="tooltip__content">Tooltip en bas</div>
+            </div>
+
+            <!-- Left -->
+            <div class="tooltip tooltip--left">
+              <button class="btn btn--secondary">Left</button>
+              <div class="tooltip__content">Tooltip à gauche</div>
+            </div>
+
+            <!-- Right -->
+            <div class="tooltip tooltip--right">
+              <button class="btn btn--secondary">Right</button>
+              <div class="tooltip__content">Tooltip à droite</div>
+            </div>
+
+            <!-- Dark variant -->
+            <div class="tooltip tooltip--dark">
+              <button class="btn btn--secondary">Dark</button>
+              <div class="tooltip__content">Tooltip sombre</div>
+            </div>
+
+            <!-- On icon -->
+            <div class="tooltip">
+              <div class="icon-box" style="cursor: help">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                  <path d="M12 17h.01" />
+                </svg>
+              </div>
+              <div class="tooltip__content">Aide contextuelle</div>
+            </div>
+
+            <!-- Multiline -->
+            <div class="tooltip tooltip--multiline">
+              <span class="badge">Multiline</span>
+              <div class="tooltip__content">
+                Ce tooltip peut contenir plusieurs lignes de texte pour des explications plus
+                longues.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider mb-12"></div>
+
+        <!-- Glass Actor Cards -->
+        <div class="mb-12">
+          <h3 class="text-label mb-4">Glass Actor Cards</h3>
+          <p class="text-caption mb-6">
+            Cartes flottantes premium avec effet glassmorphism, idéales pour les interfaces
+            interactives.
+          </p>
+
+          <div class="grid--4 grid" style="gap: var(--space-6)">
+            <!-- Photo Card -->
+            <div
+              class="glass-actor glass-actor--photo"
+              style="aspect-ratio: 4/5; min-height: 280px"
+            >
+              <div class="glass-actor__image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop"
+                  alt="Photo professionnelle"
+                  class="glass-actor__image"
+                  loading="lazy"
+                />
+                <div class="glass-actor__overlay"></div>
+                <div class="glass-actor__highlight"></div>
+              </div>
+              <button class="glass-actor__badge">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                  />
+                  <circle cx="12" cy="13" r="4" />
+                </svg>
+                <span>Photo</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Map Card -->
+            <div class="glass-actor glass-actor--map" style="aspect-ratio: 1; min-height: 220px">
+              <!-- SVG Map Background -->
+              <div class="glass-actor__map-bg">
+                <svg
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 200 200"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <defs>
+                    <pattern id="mapGrid" width="25" height="25" patternUnits="userSpaceOnUse">
+                      <path
+                        d="M 25 0 L 0 0 0 25"
+                        fill="none"
+                        stroke="rgba(148, 163, 184, 0.25)"
+                        stroke-width="0.5"
+                      />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#mapGrid)" />
+                  <path
+                    d="M 0 60 Q 40 70 80 50 T 160 65 T 200 55"
+                    fill="none"
+                    stroke="rgba(203, 213, 225, 0.7)"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M 50 0 Q 60 50 45 100 T 60 200"
+                    fill="none"
+                    stroke="rgba(203, 213, 225, 0.6)"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="25" cy="150" r="18" fill="rgba(34, 197, 94, 0.25)" />
+                  <circle cx="170" cy="35" r="22" fill="rgba(34, 197, 94, 0.25)" />
+                </svg>
+              </div>
+              <!-- Pin -->
+              <div class="glass-actor__pin">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <!-- Compass -->
+              <div class="glass-actor__compass">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                </svg>
+              </div>
+              <!-- Location label -->
+              <div class="glass-actor__location">
+                <span class="glass-actor__location-dot"></span>
+                <span>Paris, France</span>
+              </div>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="glass-actor glass-actor--contact" style="min-height: 260px">
+              <div class="glass-actor__header">
+                <div class="glass-actor__icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="glass-actor__title">Contact</h3>
+                  <p class="glass-actor__subtitle">Écrivez-nous</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div class="glass-input-wrapper">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    />
+                  </svg>
+                  <input type="tel" class="glass-input" placeholder="Votre téléphone" />
+                </div>
+                <div class="glass-input-wrapper">
+                  <svg
+                    class="icon-top"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                  <textarea
+                    class="glass-input glass-textarea"
+                    placeholder="Votre message..."
+                    rows="3"
+                  ></textarea>
+                </div>
+                <button class="glass-actor__submit">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                  <span>Envoyer</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Toggle Card -->
+            <div class="glass-actor glass-actor--toggle" style="height: 56px">
+              <div class="glass-actor__toggle-label">
+                <div class="glass-actor__toggle-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="4" />
+                    <path
+                      d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                    />
+                  </svg>
+                </div>
+                <span class="glass-actor__toggle-text">Light</span>
+              </div>
+              <div class="glass-actor__switch">
+                <div class="glass-actor__switch-thumb"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Card (full width demo) -->
+          <div class="mt-8">
+            <h4 class="text-caption mb-4">Profile Card (avec handles de sélection style Figma)</h4>
+            <div class="glass-actor glass-actor--profile" style="width: 200px; height: 100px">
+              <div class="glass-actor__selection">
+                <div class="glass-actor__handle glass-actor__handle--tl"></div>
+                <div class="glass-actor__handle glass-actor__handle--tr"></div>
+                <div class="glass-actor__handle glass-actor__handle--bl"></div>
+                <div class="glass-actor__handle glass-actor__handle--br"></div>
+                <div class="glass-actor__handle glass-actor__handle--ml"></div>
+                <div class="glass-actor__handle glass-actor__handle--mr"></div>
+              </div>
+              <div class="glass-actor__logo">Logo<span class="glass-actor__logo-dot">.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider mb-12"></div>
+
+        <!-- Inputs -->
+        <div class="mb-12">
+          <h3 class="text-label mb-4">Champs de saisie</h3>
+          <div class="grid--2 grid" style="max-width: 600px">
+            <input type="text" class="input" placeholder="Votre email" />
+            <input type="text" class="input input--lg" placeholder="Input large" />
+          </div>
+        </div>
+
+        <div class="divider mb-12"></div>
+
+        <!-- Typography -->
+        <div class="mb-12">
+          <h3 class="text-label mb-4">Typographie</h3>
+          <div class="flex flex-col gap-4">
+            <h1 class="text-display">Display Title</h1>
+            <h2 class="text-headline">Headline <span class="text-accent">avec accent</span></h2>
+            <h3 class="text-title">Title</h3>
+            <p class="text-body">
+              Body text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p class="text-body text-body--large">Body Large - Lorem ipsum dolor sit amet.</p>
+            <p class="text-caption">Caption - Texte secondaire</p>
+            <span class="text-label">LABEL TEXT</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__card">
+          <div class="footer__top">
+            <div class="footer__brand">interweb</div>
+            <p class="footer__tagline">
+              Création de sites internet professionnels. Première version gratuite, sans engagement.
+            </p>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__copyright">© 2025 Interweb. Tous droits réservés.</p>
+            <div class="footer__links">
+              <a href="#" class="footer__link">Confidentialité</a>
+              <a href="#" class="footer__link">CGU</a>
+              <a href="#" class="footer__link">CGV</a>
+              <a href="#" class="footer__link">Mentions légales</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       SCRIPTS
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <script>
+      // ─────────────────────────────────────────────────────────────────────────
+      // Theme Toggle
+      // ─────────────────────────────────────────────────────────────────────────
+      function toggleTheme() {
+        const html = document.documentElement
+        const body = document.body
+        const sunIcon = document.querySelector('.sun-icon')
+        const moonIcon = document.querySelector('.moon-icon')
+
+        if (html.classList.contains('dark-mode')) {
+          html.classList.remove('dark-mode')
+          body.classList.remove('dark-mode')
+          sunIcon.style.display = 'block'
+          moonIcon.style.display = 'none'
+          localStorage.setItem('theme', 'light')
+        } else {
+          html.classList.add('dark-mode')
+          body.classList.add('dark-mode')
+          sunIcon.style.display = 'none'
+          moonIcon.style.display = 'block'
+          localStorage.setItem('theme', 'dark')
+        }
+      }
+
+      // Initialize theme from localStorage or system preference
+      ;(function () {
+        const savedTheme = localStorage.getItem('theme')
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.classList.add('dark-mode')
+          document.body.classList.add('dark-mode')
+          const sunIcon = document.querySelector('.sun-icon')
+          const moonIcon = document.querySelector('.moon-icon')
+          if (sunIcon) sunIcon.style.display = 'none'
+          if (moonIcon) moonIcon.style.display = 'block'
+        }
+      })()
+
+      // ─────────────────────────────────────────────────────────────────────────
+      // Smooth scroll for anchor links
+      // ─────────────────────────────────────────────────────────────────────────
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault()
+          const target = document.querySelector(this.getAttribute('href'))
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        })
+      })
+    </script>
+  </body>
+</html>

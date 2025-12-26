@@ -1,8 +1,8 @@
 export default defineAppConfig({
   site: {
-    name: 'Nuxt Massive Site',
+    name: 'Interweb Site',
     url: 'https://example.com',
-    defaultTitle: 'Nuxt Massive Site',
+    defaultTitle: 'Interweb Site',
     defaultDescription: 'Une base Nuxt 4 robuste et scalable pour vos projets web.',
     defaultOgImage: '/og-default.jpg',
     twitterHandle: '@nuxtmassive'

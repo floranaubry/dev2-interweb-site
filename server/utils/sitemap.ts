@@ -1,5 +1,6 @@
 import { serverQueryContent } from '#content/server'
 import type { H3Event } from 'h3'
+import { isSitemapKind, type PageKind, SCALE_THRESHOLDS } from '../../app/config/pagePolicy'
 
 // =============================================================================
 // TYPES
@@ -11,11 +12,15 @@ export interface SitemapEntry {
   alternates?: Array<{ hreflang: string; href: string }>
 }
 
-interface ContentArticle {
+interface ContentDocument {
   _path?: string
+  _locale?: string
   date?: string
   updated?: string
   draft?: boolean
+  seo?: {
+    noindex?: boolean
+  }
 }
 
 // =============================================================================
@@ -121,12 +126,39 @@ export function buildAlternates(
   return alternates
 }
 
+/**
+ * Check if a content path is for an indexable page kind
+ * Uses centralized PAGE_POLICY
+ *
+ * Path format: /{locale}/pages/{kind}/{slug}
+ */
+function isIndexablePage(path: string): boolean {
+  // Extract kind from path: /{locale}/pages/{kind}/{slug}
+  const kindMatch = path.match(/^\/\w{2}\/pages\/(\w+)\//)
+  if (!kindMatch) return false
+
+  const kind = kindMatch[1] as PageKind
+  return isSitemapKind(kind)
+}
+
+/**
+ * Check if a page should be excluded from sitemap
+ * - Drafts are excluded
+ * - Pages with noindex: true are excluded
+ * - p and demo pages are excluded (never reach here due to path filtering)
+ */
+function shouldExcludeFromSitemap(doc: ContentDocument): boolean {
+  if (doc.draft === true) return true
+  if (doc.seo?.noindex === true) return true
+  return false
+}
+
 // =============================================================================
 // MAIN SITEMAP GENERATOR
 // =============================================================================
 
 /**
- * Get all sitemap entries from static pages and blog content
+ * Get all sitemap entries from static pages, site pages, and blog content
  * Uses runtimeConfig as single source of truth
  * Cached for CACHE_TTL (10 minutes)
  */
@@ -199,22 +231,94 @@ export async function getSitemapEntries(event: H3Event): Promise<SitemapEntry[]>
   }
 
   // ---------------------------------------------------------------------------
-  // Blog articles from Nuxt Content (v2 API)
+  // Query all content documents
   // ---------------------------------------------------------------------------
   try {
-    // Query all blog articles, excluding drafts (primary filter)
     const queried = await serverQueryContent(event)
       .where({ draft: { $ne: true } })
       .find()
 
-    // Safety net: double-check no drafts slip through
-    const articles = (queried as ContentArticle[]).filter((a) => a.draft !== true)
+    const documents = queried as ContentDocument[]
 
-    // Filter only blog articles
-    const blogArticles = articles.filter((doc) => doc._path && doc._path.includes('/blog/'))
+    // ---------------------------------------------------------------------------
+    // Site pages (indexable kinds only, via PAGE_POLICY)
+    // ---------------------------------------------------------------------------
+    const sitePages = documents.filter(
+      (doc) => doc._path && isIndexablePage(doc._path) && !shouldExcludeFromSitemap(doc)
+    )
+
+    // Group site pages by slug to find translations
+    const sitePagesBySlug = new Map<string, ContentDocument[]>()
+
+    for (const page of sitePages) {
+      if (!page._path) continue
+
+      // page._path is like /fr/pages/site/about or /en/pages/site/about
+      const pathMatch = page._path.match(/^\/(\w{2})\/pages\/site\/(.+)$/)
+      if (!pathMatch) continue
+
+      const slug = pathMatch[2]
+      if (!slug) continue
+      if (!sitePagesBySlug.has(slug)) {
+        sitePagesBySlug.set(slug, [])
+      }
+      sitePagesBySlug.get(slug)!.push(page)
+    }
+
+    // Create sitemap entries for each site page
+    for (const [slug, translations] of sitePagesBySlug) {
+      for (const page of translations) {
+        if (!page._path) continue
+
+        const pathMatch = page._path.match(/^\/(\w{2})\/pages\/site\/(.+)$/)
+        if (!pathMatch) continue
+
+        const [, pageLocale] = pathMatch
+        // Site pages are served at /:slug (not /pages/site/:slug)
+        const urlPath = pageLocale === defaultLocale ? `/${slug}` : `/${pageLocale}/${slug}`
+
+        // Build alternates only for translations that exist
+        const pageAlternates: Array<{ hreflang: string; href: string }> = []
+
+        for (const code of normalizedLocales) {
+          const translationPath = code === defaultLocale ? `/${slug}` : `/${code}/${slug}`
+          const hasTranslation = translations.some((t) => t._path?.startsWith(`/${code}/`))
+
+          if (hasTranslation) {
+            pageAlternates.push({
+              hreflang: localeMeta[code] || code,
+              href: toAbsoluteUrl(siteUrl, translationPath)
+            })
+          }
+        }
+
+        // x-default points to default locale if it exists
+        const hasDefaultTranslation = translations.some((t) =>
+          t._path?.startsWith(`/${defaultLocale}/`)
+        )
+        if (hasDefaultTranslation) {
+          pageAlternates.push({
+            hreflang: 'x-default',
+            href: toAbsoluteUrl(siteUrl, `/${slug}`)
+          })
+        }
+
+        entries.push({
+          loc: toAbsoluteUrl(siteUrl, urlPath),
+          alternates: pageAlternates.length > 0 ? pageAlternates : undefined
+        })
+      }
+    }
+
+    // ---------------------------------------------------------------------------
+    // Blog articles from Nuxt Content
+    // ---------------------------------------------------------------------------
+    const blogArticles = documents.filter(
+      (doc) => doc._path && doc._path.includes('/blog/') && !shouldExcludeFromSitemap(doc)
+    )
 
     // Group articles by slug to find translations
-    const articlesBySlug = new Map<string, ContentArticle[]>()
+    const articlesBySlug = new Map<string, ContentDocument[]>()
 
     for (const article of blogArticles) {
       if (!article._path) continue
@@ -279,6 +383,21 @@ export async function getSitemapEntries(event: H3Event): Promise<SitemapEntry[]>
   } catch (error) {
     // Content query failed - continue with static pages only
     console.warn('[sitemap] Content query failed:', error)
+  }
+
+  // ---------------------------------------------------------------------------
+  // STABLE OUTPUT: Sort entries by loc for deterministic sitemap
+  // ---------------------------------------------------------------------------
+  entries.sort((a, b) => a.loc.localeCompare(b.loc))
+
+  // ---------------------------------------------------------------------------
+  // SCALE WARNING (dev/server-side only)
+  // ---------------------------------------------------------------------------
+  if (entries.length > SCALE_THRESHOLDS.SITEMAP_WARNING) {
+    console.warn(
+      `[sitemap] ⚠️ SCALE WARNING: ${entries.length} entries exceeds threshold (${SCALE_THRESHOLDS.SITEMAP_WARNING}). ` +
+        `Consider pagination or sitemap index.`
+    )
   }
 
   // Store in cache

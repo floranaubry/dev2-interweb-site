@@ -1,0 +1,43 @@
+kind: demo
+
+seo:
+  title: Pizza David — La meilleure pizza de Paris
+  description: Découvrez les pizzas artisanales de David, préparées avec amour et des ingrédients frais depuis 1985.
+  noindex: true
+
+packKey: pizza
+
+shell:
+  header: null
+  footer: null
+
+sections:
+  # Hero section with Pizza pack (inherited from packKey)
+  - id: hero.split
+    props:
+      title: Pizza David
+      subtitle: 'Depuis 1985, nous préparons les meilleures pizzas artisanales de Paris avec des ingrédients frais et une pâte maison.'
+      ctaLabel: Commander maintenant
+      ctaHref: '#menu'
+      imageUrl: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop'
+
+  # FAQ section with Pizza pack (inherited from packKey)
+  - id: faq.simple
+    props:
+      title: Questions fréquentes
+      items:
+        - q: "Quels sont vos horaires d'ouverture ?"
+          a: 'Nous sommes ouverts du mardi au dimanche, de 11h30 à 14h30 et de 18h30 à 22h30.'
+        - q: 'Proposez-vous des pizzas végétariennes ?'
+          a: 'Oui ! Nous avons une belle sélection de pizzas végétariennes, dont notre fameuse Margherita aux tomates fraîches et basilic du jardin.'
+        - q: 'Livrez-vous à domicile ?'
+          a: 'Nous livrons dans un rayon de 3km autour de notre pizzeria. Commande minimum de 15€.'
+
+  # Hero section with Interweb pack override (demonstrates pack mixing)
+  - id: hero.split
+    pack: interweb
+    props:
+      title: Site créé par Interweb
+      subtitle: 'Ce site vitrine a été conçu avec la plateforme Interweb — créez votre propre site en quelques minutes.'
+      ctaLabel: Découvrir Interweb
+      ctaHref: '/'

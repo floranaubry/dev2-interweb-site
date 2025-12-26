@@ -31,8 +31,12 @@ export default defineEventHandler(async (event) => {
   xml += '</urlset>'
 
   // Set headers and return
-  setHeader(event, 'Content-Type', 'application/xml')
-  setHeader(event, 'Cache-Control', 'public, max-age=3600')
+  // Cache strategy:
+  // - max-age=0: browsers always revalidate
+  // - s-maxage=600: CDN caches for 10 minutes
+  // - stale-while-revalidate=86400: CDN serves stale for 24h while refreshing
+  setHeader(event, 'Content-Type', 'application/xml; charset=utf-8')
+  setHeader(event, 'Cache-Control', 'public, max-age=0, s-maxage=600, stale-while-revalidate=86400')
   return xml
 })
 

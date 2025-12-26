@@ -1,0 +1,6 @@
+# pnpm configuration
+# See: https://pnpm.io/npmrc
+
+shamefully-hoist=true
+node-linker=hoisted
+

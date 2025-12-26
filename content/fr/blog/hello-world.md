@@ -1,6 +1,6 @@
 ---
 title: Bonjour le monde
-description: Premier article de notre blog Nuxt Massive Site.
+description: Premier article de notre blog Interweb.
 date: 2025-12-25
 updated: 2025-12-25
 tags: [nuxt, introduction]
@@ -11,7 +11,7 @@ draft: false
 
 # Bonjour le monde
 
-Bienvenue sur le blog de Nuxt Massive Site ! Ceci est notre premier article.
+Bienvenue sur le blog de Interweb ! Ceci est notre premier article.
 
 ## Pourquoi Nuxt ?
 

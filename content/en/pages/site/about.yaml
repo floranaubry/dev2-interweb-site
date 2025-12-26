@@ -1,0 +1,30 @@
+kind: site
+
+seo:
+  title: About — Interweb
+  description: Discover the team and mission of Interweb, the platform that simplifies professional website creation.
+
+packKey: interweb
+
+shell:
+  header: null
+  footer: null
+
+sections:
+  - id: hero.split
+    props:
+      title: About Interweb
+      subtitle: 'We believe every business deserves a professional online presence, without technical complexity.'
+      ctaLabel: Contact us
+      ctaHref: '/contact'
+
+  - id: faq.simple
+    props:
+      title: Frequently Asked Questions
+      items:
+        - q: 'What is Interweb?'
+          a: 'Interweb is a website creation platform that allows you to build professional pages from reusable components.'
+        - q: 'How does the pack system work?'
+          a: 'Packs define the visual style of your site (colors, fonts, spacing). You can even mix different packs on the same page.'
+        - q: 'Can I customize my site?'
+          a: 'Absolutely! Each section can be configured via props, and you can override CSS variables for a unique style.'

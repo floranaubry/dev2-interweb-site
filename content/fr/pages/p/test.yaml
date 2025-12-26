@@ -1,0 +1,43 @@
+kind: p
+
+seo:
+  title: Page de test — Aperçu privé
+  description: Cette page est un aperçu privé, non indexée par les moteurs de recherche.
+  noindex: false # Will be forced to true by the system
+
+packKey: interweb
+
+shell:
+  header: null
+  footer: null
+
+sections:
+  - id: hero.split
+    props:
+      title: Page de test privée
+      subtitle: 'Cette page démontre le fonctionnement des pages /p/* qui sont toujours noindex.'
+      ctaLabel: Retour à l'accueil
+      ctaHref: '/'
+
+  - id: layout.stack
+    props:
+      gap: 8
+      align: center
+      maxWidth: 2xl
+      paddingY: 12
+      content: |
+        <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Pourquoi cette page est-elle privée ?</h2>
+        <p>Les pages avec <code>kind: p</code> sont destinées aux aperçus, landing pages temporaires, ou contenus non destinés à l'indexation.</p>
+        <p style="margin-top: 1rem;"><strong>noindex forcé</strong> : même si le YAML indique <code>noindex: false</code>, le système force <code>noindex: true</code>.</p>
+
+  - id: faq.simple
+    pack: pizza
+    overrides:
+      '--primary': '59 130 246'
+    props:
+      title: Démonstration des overrides
+      items:
+        - q: 'Cette section utilise le pack pizza ?'
+          a: "Oui, mais avec un override sur --primary qui change la couleur d'accent."
+        - q: 'Comment ça marche ?'
+          a: 'Chaque section peut surcharger les CSS variables via le champ overrides dans le YAML.'

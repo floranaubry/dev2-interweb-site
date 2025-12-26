@@ -1,0 +1,43 @@
+kind: p
+
+seo:
+  title: Test Page — Private Preview
+  description: This page is a private preview, not indexed by search engines.
+  noindex: false # Will be forced to true by the system
+
+packKey: interweb
+
+shell:
+  header: null
+  footer: null
+
+sections:
+  - id: hero.split
+    props:
+      title: Private Test Page
+      subtitle: 'This page demonstrates how /p/* pages work — they are always noindex.'
+      ctaLabel: Back to home
+      ctaHref: '/'
+
+  - id: layout.stack
+    props:
+      gap: 8
+      align: center
+      maxWidth: 2xl
+      paddingY: 12
+      content: |
+        <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Why is this page private?</h2>
+        <p>Pages with <code>kind: p</code> are intended for previews, temporary landing pages, or content not meant for indexing.</p>
+        <p style="margin-top: 1rem;"><strong>Forced noindex</strong>: even if the YAML specifies <code>noindex: false</code>, the system forces <code>noindex: true</code>.</p>
+
+  - id: faq.simple
+    pack: pizza
+    overrides:
+      '--primary': '59 130 246'
+    props:
+      title: Override Demonstration
+      items:
+        - q: 'Does this section use the pizza pack?'
+          a: 'Yes, but with an override on --primary that changes the accent color.'
+        - q: 'How does it work?'
+          a: 'Each section can override CSS variables via the overrides field in YAML.'

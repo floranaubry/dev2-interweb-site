@@ -1,6 +1,6 @@
 ---
 title: Hello World
-description: First article on our Nuxt Massive Site blog.
+description: First article on our Interweb blog.
 date: 2025-12-25
 updated: 2025-12-25
 tags: [nuxt, introduction]
@@ -11,7 +11,7 @@ draft: false
 
 # Hello World
 
-Welcome to the Nuxt Massive Site blog! This is our first article.
+Welcome to the Interweb blog! This is our first article.
 
 ## Why Nuxt?
 

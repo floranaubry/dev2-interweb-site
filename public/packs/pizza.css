@@ -1,0 +1,12 @@
+/**
+ * Pizza Pack — Design tokens
+ * Warm Italian aesthetic: cream backgrounds, red accents
+ */
+[data-pack='pizza'] {
+  --bg: 254 252 232; /* yellow-50 */
+  --fg: 68 64 60; /* stone-700 */
+  --primary: 220 38 38; /* red-600 */
+  --primary-fg: 255 255 255; /* white */
+  --muted: 168 162 158; /* stone-400 */
+  --radius: 0.75rem;
+}

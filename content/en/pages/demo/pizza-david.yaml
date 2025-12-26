@@ -1,0 +1,40 @@
+kind: demo
+
+seo:
+  title: Pizza David — The Best Pizza in Paris
+  description: Discover David's artisan pizzas, prepared with love and fresh ingredients since 1985.
+  noindex: true
+
+packKey: pizza
+
+shell:
+  header: null
+  footer: null
+
+sections:
+  - id: hero.split
+    props:
+      title: Pizza David
+      subtitle: 'Since 1985, we have been preparing the best artisan pizzas in Paris with fresh ingredients and homemade dough.'
+      ctaLabel: Order now
+      ctaHref: '#menu'
+      imageUrl: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop'
+
+  - id: faq.simple
+    props:
+      title: Frequently Asked Questions
+      items:
+        - q: 'What are your opening hours?'
+          a: 'We are open Tuesday to Sunday, from 11:30am to 2:30pm and 6:30pm to 10:30pm.'
+        - q: 'Do you offer vegetarian pizzas?'
+          a: 'Yes! We have a great selection of vegetarian pizzas, including our famous Margherita with fresh tomatoes and garden basil.'
+        - q: 'Do you deliver?'
+          a: 'We deliver within a 3km radius of our pizzeria. Minimum order €15.'
+
+  - id: hero.split
+    pack: interweb
+    props:
+      title: Site created by Interweb
+      subtitle: 'This showcase site was designed with the Interweb platform — create your own site in minutes.'
+      ctaLabel: Discover Interweb
+      ctaHref: '/'
