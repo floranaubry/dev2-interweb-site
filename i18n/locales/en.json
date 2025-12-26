@@ -1,0 +1,9 @@
+{
+  "siteName": "Nuxt Massive Site",
+  "navBlog": "Blog",
+  "blogTitle": "Blog",
+  "blogDescription": "Discover our latest articles and guides.",
+  "readMore": "Read more",
+  "draft": "Draft",
+  "noArticles": "No articles yet."
+}
