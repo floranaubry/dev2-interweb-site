@@ -145,7 +145,12 @@ export async function getSitemapEntries(event: H3Event): Promise<SitemapEntry[]>
   const normalizedLocales = uniq([defaultLocale, ...configLocales])
 
   // Cache key based on config (invalidate if config changes)
-  const cacheKey = JSON.stringify({ siteUrl, defaultLocale, locales: normalizedLocales })
+  const cacheKey = JSON.stringify({
+    siteUrl,
+    defaultLocale,
+    locales: normalizedLocales,
+    localeMeta
+  })
 
   // Return cached entries if valid
   if (cache && cache.key === cacheKey && Date.now() - cache.at < CACHE_TTL) {

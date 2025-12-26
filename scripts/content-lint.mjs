@@ -17,22 +17,18 @@ const ROOT = join(__dirname, '..')
 const CONTENT_DIR = join(ROOT, 'content')
 
 // =============================================================================
-// REQUIRED FIELDS
+// REQUIRED FIELDS (all mandatory per contract)
 // =============================================================================
 
 const REQUIRED_FIELDS = [
   { name: 'title', type: 'string' },
   { name: 'description', type: 'string' },
   { name: 'date', type: 'date' },
-  { name: 'draft', type: 'boolean' }
-]
-
-// Optional but validated if present
-const OPTIONAL_FIELDS = [
   { name: 'updated', type: 'date' },
   { name: 'tags', type: 'array' },
   { name: 'category', type: 'string' },
-  { name: 'cover', type: 'string' }
+  { name: 'cover', type: 'string' },
+  { name: 'draft', type: 'boolean' }
 ]
 
 // =============================================================================
@@ -156,10 +152,11 @@ async function validateFile(filePath) {
   // Parse frontmatter
   const frontmatter = parseYaml(frontmatterRaw)
 
-  // Check required fields
+  // Check all required fields
   for (const field of REQUIRED_FIELDS) {
     const value = frontmatter[field.name]
 
+    // Check presence
     if (value === undefined || value === null || value === '') {
       errors.push(`Missing required field: ${field.name}`)
       continue
@@ -170,44 +167,39 @@ async function validateFile(filePath) {
       case 'string':
         if (typeof value !== 'string') {
           errors.push(`Field "${field.name}" must be a string`)
+        } else if (value.trim() === '') {
+          errors.push(`Field "${field.name}" must not be empty`)
         }
         break
+
       case 'date':
         if (!isValidDate(value)) {
           errors.push(`Field "${field.name}" must be a valid date (YYYY-MM-DD), got: ${value}`)
         }
         break
+
       case 'boolean':
         if (typeof value !== 'boolean') {
           errors.push(`Field "${field.name}" must be a boolean (true/false)`)
         }
         break
+
       case 'array':
         if (!Array.isArray(value)) {
           errors.push(`Field "${field.name}" must be an array`)
         } else if (value.length === 0) {
           errors.push(`Field "${field.name}" must not be empty`)
+        } else if (!value.every((v) => typeof v === 'string')) {
+          errors.push(`Field "${field.name}" must be an array of strings`)
         }
         break
     }
   }
 
-  // Check optional fields if present
-  for (const field of OPTIONAL_FIELDS) {
-    const value = frontmatter[field.name]
-    if (value === undefined || value === null) continue
-
-    switch (field.type) {
-      case 'date':
-        if (!isValidDate(value)) {
-          errors.push(`Field "${field.name}" must be a valid date (YYYY-MM-DD), got: ${value}`)
-        }
-        break
-      case 'array':
-        if (!Array.isArray(value)) {
-          errors.push(`Field "${field.name}" must be an array`)
-        }
-        break
+  // Additional validation: cover should start with /
+  if (frontmatter.cover && typeof frontmatter.cover === 'string') {
+    if (!frontmatter.cover.startsWith('/')) {
+      errors.push(`Field "cover" should start with "/" (got: ${frontmatter.cover})`)
     }
   }
 
