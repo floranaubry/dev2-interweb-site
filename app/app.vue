@@ -30,11 +30,8 @@
     transparent 100%
   ) !important;
   
-  /* Glass effect glow */
-  box-shadow: 
-    0 0 10px rgba(0, 113, 227, 0.3),
-    0 0 20px rgba(88, 86, 214, 0.2),
-    0 0 30px rgba(175, 82, 222, 0.1);
+  /* Simplified glow for mobile compatibility */
+  box-shadow: 0 0 8px rgba(88, 86, 214, 0.3);
   
   /* Smooth corners */
   border-radius: 0 2px 2px 0;
@@ -69,10 +66,8 @@
     transparent 100%
   ) !important;
   
-  box-shadow: 
-    0 0 15px rgba(10, 132, 255, 0.5),
-    0 0 30px rgba(94, 92, 230, 0.3),
-    0 0 45px rgba(191, 90, 242, 0.2);
+  /* Simplified shadow for mobile compatibility */
+  box-shadow: 0 0 10px rgba(94, 92, 230, 0.4);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
