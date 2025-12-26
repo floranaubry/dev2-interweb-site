@@ -14,6 +14,25 @@
 
 <style>
 /* ═══════════════════════════════════════════════════════════════════════════
+   DARK MODE BACKGROUND FIX
+   Force black background on html/body to prevent iOS Safari green tint bug
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+html.dark-mode,
+html.dark-mode body,
+.dark-mode,
+.dark-mode body {
+  background-color: #000000 !important;
+}
+
+/* Light mode explicit background */
+html:not(.dark-mode),
+html:not(.dark-mode) body,
+body:not(.dark-mode) {
+  background-color: #f5f5f7 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
    APPLE-STYLE LOADING INDICATOR
    Subtle, elegant, Jony Ive-inspired progress bar
    ═══════════════════════════════════════════════════════════════════════════ */
