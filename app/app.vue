@@ -4,7 +4,7 @@
     :height="2"
     :duration="2000"
     :throttle="200"
-    color="false"
+    :color="false"
   />
   
   <NuxtLayout>
