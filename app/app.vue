@@ -14,22 +14,22 @@
 
 <style>
 /* ═══════════════════════════════════════════════════════════════════════════
-   DARK MODE BACKGROUND FIX
-   Force black background on html/body to prevent iOS Safari green tint bug
+   DARK/LIGHT MODE BASE COLORS
+   Ensure proper background and text colors on html/body for iOS Safari
    ═══════════════════════════════════════════════════════════════════════════ */
 
-html.dark-mode,
-html.dark-mode body,
-.dark-mode,
-.dark-mode body {
-  background-color: #000000 !important;
+/* Light mode */
+html:not(.dark-mode),
+html:not(.dark-mode) body {
+  background-color: #f5f5f7;
+  color: #1d1d1f;
 }
 
-/* Light mode explicit background */
-html:not(.dark-mode),
-html:not(.dark-mode) body,
-body:not(.dark-mode) {
-  background-color: #f5f5f7 !important;
+/* Dark mode */
+html.dark-mode,
+html.dark-mode body {
+  background-color: #000000;
+  color: #f5f5f7;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
