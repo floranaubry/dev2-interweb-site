@@ -112,22 +112,15 @@ html.dark-mode body {
   transform: translateY(-4px);
 }
 
-/* Layout transitions (even smoother) */
+/* Layout transitions (simple fade, no blur for mobile compatibility) */
 .layout-enter-active,
 .layout-leave-active {
-  transition: 
-    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.layout-enter-from {
-  opacity: 0;
-  filter: blur(4px);
-}
-
+.layout-enter-from,
 .layout-leave-to {
   opacity: 0;
-  filter: blur(2px);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -148,7 +141,7 @@ html {
   .page-leave-active,
   .layout-enter-active,
   .layout-leave-active {
-    transition: opacity 0.15s ease;
+    transition: opacity 0.1s ease;
   }
   
   .page-enter-from,
@@ -156,7 +149,6 @@ html {
   .layout-enter-from,
   .layout-leave-to {
     transform: none;
-    filter: none;
   }
   
   .nuxt-loading-indicator {
