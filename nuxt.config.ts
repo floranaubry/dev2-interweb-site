@@ -80,9 +80,8 @@ export default defineNuxtConfig({
       title: 'Interweb Site',
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }]
     },
-    // Smooth page transitions (Apple-style)
-    pageTransition: { name: 'page', mode: 'out-in' },
-    layoutTransition: { name: 'layout', mode: 'out-in' }
+    // Simple page transitions
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
 
   devtools: { enabled: false },
