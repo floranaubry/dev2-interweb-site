@@ -13,24 +13,6 @@
 </template>
 
 <style>
-/* ═══════════════════════════════════════════════════════════════════════════
-   DARK/LIGHT MODE BASE COLORS
-   Ensure proper background and text colors on html/body for iOS Safari
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* Light mode */
-html:not(.dark-mode),
-html:not(.dark-mode) body {
-  background-color: #f5f5f7;
-  color: #1d1d1f;
-}
-
-/* Dark mode */
-html.dark-mode,
-html.dark-mode body {
-  background-color: #000000;
-  color: #f5f5f7;
-}
 
 /* ═══════════════════════════════════════════════════════════════════════════
    APPLE-STYLE LOADING INDICATOR
